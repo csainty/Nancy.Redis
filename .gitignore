@@ -5,3 +5,4 @@ _ReSharper.Nancy.Sessions.Redis/
 [bB]in/
 [oO]bj/
 [pP]ackages/
+*.ncrunchproject
