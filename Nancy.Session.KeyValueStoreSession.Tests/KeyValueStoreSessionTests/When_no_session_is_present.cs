@@ -2,7 +2,7 @@
 using Nancy.Testing;
 using Xunit;
 
-namespace Nancy.Session.KeyValueStoreSession.Tests
+namespace Nancy.Session.KeyValueStoreSession.Tests.KeyValueStoreSessionTests
 {
     public class When_no_session_is_present
     {

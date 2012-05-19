@@ -61,12 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InProcessSessionStoreTests\IntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionTestModule.cs" />
-    <Compile Include="When_enabling_sessions.cs" />
-    <Compile Include="When_loading_a_session.cs" />
-    <Compile Include="When_no_session_is_present.cs" />
-    <Compile Include="When_saving_a_session.cs" />
+    <Compile Include="KeyValueStoreSessionTests\When_enabling_sessions.cs" />
+    <Compile Include="KeyValueStoreSessionTests\When_loading_a_session.cs" />
+    <Compile Include="KeyValueStoreSessionTests\When_no_session_is_present.cs" />
+    <Compile Include="KeyValueStoreSessionTests\When_saving_a_session.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
