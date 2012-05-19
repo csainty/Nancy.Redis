@@ -6,29 +6,18 @@ using Nancy.Bootstrapper;
 
 namespace Nancy.Sessions.Redis
 {
-    public class RedisBasedSessions : IObjectSerializerSelector
+    public class RedisBasedSessions : IKeyValueStore
     {
         IObjectSerializer serializer;
 
-        private static string cookieName = "_nsid";
-
-        public static IObjectSerializerSelector Enable(IPipelines pipelines)
+        public object Load(string key)
         {
-            var sessions = new RedisBasedSessions();
-            pipelines.BeforeRequest.AddItemToEndOfPipeline(LoadSession);
-            pipelines.AfterRequest.AddItemToEndOfPipeline(SaveSession);
-            return sessions;
+            throw new NotImplementedException();
         }
 
-        private static Response LoadSession(NancyContext ctx)
+        public void Save(string key, string value)
         {
-            return null;
-        }
-
-        private static void SaveSession(NancyContext ctx)
-        {
-            if (ctx.Request == null || ctx.Request.Session == null || !ctx.Request.Session.HasChanged)
-                return;
+            throw new NotImplementedException();
         }
 
         public void WithSerializer(IObjectSerializer newSerializer)

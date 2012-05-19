@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using FakeItEasy;
 using Nancy.Testing;
 using Xunit;
 
@@ -14,7 +15,7 @@ namespace Nancy.Sessions.Redis.Tests
             {
                 with.DisableAutoRegistration();
             });
-            RedisBasedSessions.Enable(_Bootstrapper);
+            KeyValueStoreSessions.Enable(_Bootstrapper, A.Fake<IKeyValueStore>());
         }
 
         [Fact]

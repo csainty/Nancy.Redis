@@ -6,3 +6,5 @@ _ReSharper.Nancy.Sessions.Redis/
 [oO]bj/
 [pP]ackages/
 *.ncrunchproject
+*.cache
+*.ncrunchsolution.user
