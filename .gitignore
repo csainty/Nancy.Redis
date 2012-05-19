@@ -1,0 +1,6 @@
+_ReSharper.Nancy.Sessions.Redis/
+*.ncrunchsolution
+*.DotSettings.user
+*.suo
+[bB]in/
+[oO]bj/
