@@ -2,8 +2,8 @@
 {
     public interface IKeyValueStore
     {
-        object Load(string key);
+        T Load<T>(string key);
 
-        void Save(string key, object value);
+        void Save<T>(string key, T value);
     }
 }

@@ -8,12 +8,12 @@ namespace Nancy.Redis
 {
     public class RedisBasedSessions : IKeyValueStore
     {
-        public object Load(string key)
+        public T Load<T>(string key)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(string key, object value)
+        public void Save<T>(string key, T value)
         {
             throw new NotImplementedException();
         }

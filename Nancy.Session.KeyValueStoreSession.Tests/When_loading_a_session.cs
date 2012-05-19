@@ -18,7 +18,7 @@ namespace Nancy.Session.KeyValueStoreSession.Tests
                 with.Module<SessionTestModule>();
             });
             _Store = A.Fake<IKeyValueStore>();
-            A.CallTo(() => _Store.Load("12345")).Returns(new Dictionary<string, object> { { "TestVariable", "TestValue" } });
+            A.CallTo(() => _Store.Load<IDictionary<string, object>>("12345")).Returns(new Dictionary<string, object> { { "TestVariable", "TestValue" } });
             KeyValueStoreSessions.Enable(boot, _Store);
             _Browser = new Browser(boot);
         }

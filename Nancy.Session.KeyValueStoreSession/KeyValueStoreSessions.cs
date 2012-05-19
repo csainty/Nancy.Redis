@@ -29,7 +29,7 @@ namespace Nancy.Session
             {
                 var id = ctx.Request.Cookies[GetCookieName()];
                 if (!string.IsNullOrEmpty(id))
-                    items = store.Load(id) as IDictionary<string, object>;
+                    items = store.Load<IDictionary<string, object>>(id);
             }
             ctx.Request.Session = new Session(items ?? new Dictionary<string, object>());
             return null;
@@ -47,10 +47,19 @@ namespace Nancy.Session
             }
             else
             {
+                // TODO: Should we give a way to override how the id is generated?
+                // TODO: Should we encrypt / hash the id so people can not just try out other values?
                 id = Guid.NewGuid().ToString();
                 ctx.Response.AddCookie(GetCookieName(), id);
             }
-            store.Save(id, ctx.Request.Session);
+
+            IDictionary<string, object> items = new Dictionary<string, object>();
+            foreach (var item in ctx.Request.Session)
+            {
+                items.Add(item.Key, item.Value);
+            }
+
+            store.Save(id, items);
         }
     }
 }

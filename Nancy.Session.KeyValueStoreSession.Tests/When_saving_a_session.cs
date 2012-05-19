@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FakeItEasy;
 using Nancy.Testing;
@@ -40,7 +41,7 @@ namespace Nancy.Session.KeyValueStoreSession.Tests
             {
                 with.Body("Value");
             });
-            A.CallTo(() => _Store.Save(A<string>.That.Not.IsNullOrEmpty(), A<object>.Ignored)).MustHaveHappened();
+            A.CallTo(() => _Store.Save(A<string>.That.Not.IsNullOrEmpty(), A<IDictionary<string, object>>.Ignored)).MustHaveHappened();
         }
 
         [Fact]
@@ -51,7 +52,7 @@ namespace Nancy.Session.KeyValueStoreSession.Tests
                 with.Cookie(KeyValueStoreSessions.GetCookieName(), "12345");
                 with.Body("Value");
             });
-            A.CallTo(() => _Store.Save("12345", A<object>.Ignored)).MustHaveHappened();
+            A.CallTo(() => _Store.Save("12345", A<IDictionary<string, object>>.Ignored)).MustHaveHappened();
         }
     }
 }
