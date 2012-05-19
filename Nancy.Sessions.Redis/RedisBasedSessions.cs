@@ -8,21 +8,14 @@ namespace Nancy.Sessions.Redis
 {
     public class RedisBasedSessions : IKeyValueStore
     {
-        IObjectSerializer serializer;
-
         public object Load(string key)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(string key, string value)
+        public void Save(string key, object value)
         {
             throw new NotImplementedException();
-        }
-
-        public void WithSerializer(IObjectSerializer newSerializer)
-        {
-            serializer = newSerializer;
         }
     }
 }

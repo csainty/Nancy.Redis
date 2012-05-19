@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Nancy.Bootstrapper;
 
 namespace Nancy.Sessions.Redis
@@ -12,11 +13,10 @@ namespace Nancy.Sessions.Redis
             return cookieName;
         }
 
-        public static IObjectSerializerSelector Enable(IPipelines pipelines, IKeyValueStore store)
+        public static void Enable(IPipelines pipelines, IKeyValueStore store)
         {
             pipelines.BeforeRequest.AddItemToEndOfPipeline(ctx => LoadSession(ctx, store));
             pipelines.AfterRequest.AddItemToEndOfPipeline(ctx => SaveSession(ctx, store));
-            return store;
         }
 
         private static Response LoadSession(NancyContext ctx, IKeyValueStore store)
@@ -40,6 +40,18 @@ namespace Nancy.Sessions.Redis
         {
             if (ctx.Request == null || ctx.Request.Session == null || !ctx.Request.Session.HasChanged)
                 return;
+
+            string id;
+            if (ctx.Request.Cookies.ContainsKey(GetCookieName()))
+            {
+                id = ctx.Request.Cookies[GetCookieName()];
+            }
+            else
+            {
+                id = Guid.NewGuid().ToString();
+                ctx.Response.AddCookie(GetCookieName(), id);
+            }
+            store.Save(id, ctx.Request.Session);
         }
     }
 }

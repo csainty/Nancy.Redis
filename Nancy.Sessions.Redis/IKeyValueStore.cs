@@ -1,9 +1,9 @@
 ﻿namespace Nancy.Sessions.Redis
 {
-    public interface IKeyValueStore : IObjectSerializerSelector
+    public interface IKeyValueStore
     {
         object Load(string key);
 
-        void Save(string key, string value);
+        void Save(string key, object value);
     }
 }
