@@ -1,4 +1,4 @@
-﻿namespace Nancy.Sessions.Redis
+﻿namespace Nancy
 {
     public interface IKeyValueStore
     {

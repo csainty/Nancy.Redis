@@ -3,7 +3,7 @@ using FakeItEasy;
 using Nancy.Testing;
 using Xunit;
 
-namespace Nancy.Sessions.Redis.Tests
+namespace Nancy.Session.KeyValueStoreSession.Tests
 {
     public class When_enabling_sessions
     {

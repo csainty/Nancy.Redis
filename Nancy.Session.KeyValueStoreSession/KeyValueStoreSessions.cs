@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Nancy.Bootstrapper;
 
-namespace Nancy.Sessions.Redis
+namespace Nancy.Session
 {
     public class KeyValueStoreSessions
     {
@@ -31,8 +31,7 @@ namespace Nancy.Sessions.Redis
                 if (!string.IsNullOrEmpty(id))
                     items = store.Load(id) as IDictionary<string, object>;
             }
-
-            ctx.Request.Session = new Session.Session(items ?? new Dictionary<string, object>());
+            ctx.Request.Session = new Session(items ?? new Dictionary<string, object>());
             return null;
         }
 

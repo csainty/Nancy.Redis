@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{425EBEBD-D250-4565-ACFF-8A13E7DE2FBC}</ProjectGuid>
+    <ProjectGuid>{10BC0C78-6A0C-4C6E-A634-ADCBA7F0C564}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nancy.Sessions.Redis.Tests</RootNamespace>
-    <AssemblyName>Nancy.Sessions.Redis.Tests</AssemblyName>
+    <RootNamespace>Nancy.Session</RootNamespace>
+    <AssemblyName>Nancy.Session.KeyValueStoreSession</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,23 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core">
-      <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="FakeItEasy">
-      <HintPath>..\packages\FakeItEasy.1.7.4507.61\lib\NET40\FakeItEasy.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\packages\Nancy.Testing.0.11.0\lib\net40\HtmlAgilityPack.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPlus">
-      <HintPath>..\packages\Nancy.Testing.0.11.0\lib\net40\HtmlAgilityPlus.dll</HintPath>
-    </Reference>
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.11.0\lib\net40\Nancy.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.Testing">
-      <HintPath>..\packages\Nancy.Testing.0.11.0\lib\net40\Nancy.Testing.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,26 +41,14 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="xunit">
-      <HintPath>..\packages\xunit.1.9.0.1566\lib\xunit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IKeyValueStore.cs" />
+    <Compile Include="KeyValueStoreSessions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SessionTestModule.cs" />
-    <Compile Include="When_enabling_sessions.cs" />
-    <Compile Include="When_loading_a_session.cs" />
-    <Compile Include="When_no_session_is_present.cs" />
-    <Compile Include="When_saving_a_session.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Nancy.Sessions.Redis\Nancy.Sessions.Redis.csproj">
-      <Project>{8BB979FA-A5E2-4B43-808F-EEA1C2977A24}</Project>
-      <Name>Nancy.Sessions.Redis</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

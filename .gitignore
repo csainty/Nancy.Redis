@@ -8,3 +8,4 @@ _ReSharper.Nancy.Sessions.Redis/
 *.ncrunchproject
 *.cache
 *.ncrunchsolution.user
+_ReSharper.Nancy.Redis/

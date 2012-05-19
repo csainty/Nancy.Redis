@@ -1,7 +1,7 @@
 ﻿using System;
 using Nancy.ModelBinding;
 
-namespace Nancy.Sessions.Redis.Tests
+namespace Nancy.Session.KeyValueStoreSession.Tests
 {
     public class SessionTestModule : NancyModule
     {

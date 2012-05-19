@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Nancy.Bootstrapper;
 
-namespace Nancy.Sessions.Redis
+namespace Nancy.Redis
 {
     public class RedisBasedSessions : IKeyValueStore
     {

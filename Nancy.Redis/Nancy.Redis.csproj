@@ -8,8 +8,8 @@
     <ProjectGuid>{8BB979FA-A5E2-4B43-808F-EEA1C2977A24}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nancy.Sessions.Redis</RootNamespace>
-    <AssemblyName>Nancy.Sessions.Redis</AssemblyName>
+    <RootNamespace>Nancy.Redis</RootNamespace>
+    <AssemblyName>Nancy.Redis</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -55,13 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IKeyValueStore.cs" />
-    <Compile Include="KeyValueStoreSessions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedisBasedSessions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nancy.Session.KeyValueStoreSession\Nancy.Session.KeyValueStoreSession.csproj">
+      <Project>{10BC0C78-6A0C-4C6E-A634-ADCBA7F0C564}</Project>
+      <Name>Nancy.Session.KeyValueStoreSession</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
