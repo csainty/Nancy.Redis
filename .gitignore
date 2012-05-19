@@ -4,3 +4,4 @@ _ReSharper.Nancy.Sessions.Redis/
 *.suo
 [bB]in/
 [oO]bj/
+[pP]ackages/
