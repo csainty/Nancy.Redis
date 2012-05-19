@@ -7,10 +7,11 @@ namespace Nancy.Session.KeyValueStoreSession.Tests.InProcessSessionStoreTests
         [Fact]
         public void InProcessSessionStore_IntegrationTests()
         {
-            var store = new InProcessSessionStore();
+            var store = InProcessSessionStore.Instance;
+            store.Clear();
 
             // Should be empty to begin with
-            Assert.Equal("", store.Load<string>("Test"));
+            Assert.Null(store.Load<string>("Test"));
             Assert.Null(store.Load<object>("Test"));
 
             // Can add data
@@ -18,7 +19,7 @@ namespace Nancy.Session.KeyValueStoreSession.Tests.InProcessSessionStoreTests
             Assert.Equal("Value", store.Load<string>("Test"));
 
             // Can load data from a second instance
-            var store2 = new InProcessSessionStore();
+            var store2 = InProcessSessionStore.Instance;
             Assert.Equal("Value", store2.Load<string>("Test"));
         }
     }
